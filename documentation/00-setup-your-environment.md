@@ -200,13 +200,13 @@ git commit -S -m "I, $(git config --get user.name), completed the setup"
 git log --show-signature
 ```
 
-You should get a response like:
+The last command should get you a response like:
 
 ```bash
-commit 368c68ae34a5701a893417a2c40a5f94b945ec86 (HEAD -> nico@harms.de)
+commit 368c68ae34a5701a893417a2c40a5f94b945ec86 (HEAD -> mail@example.com)
 gpg: Signature made Mo, 27. Jun 2022 17:51:21
 gpg:                using RSA key AD0C101BD726327129BC3F1F1A715B0B451F47EC
-gpg: Good signature from "Nico Harms <nharms@awi.de>" [ultimate]
+gpg: Good signature from "Nico Harms <mail@example.com>" [ultimate]
 Author: Nico Harms <nico@harms.de>
 Date:   Mon Jun 27 15:15:34 2022 +0200
 
