@@ -23,8 +23,8 @@ At this point, my project folder will look something like this:
 my-project
 ├── document.txt
 ├── document-v2.txt
-├── document-v2-final_draft2.txt
 ├── document-v2-final_draft.txt
+├── document-v2-final_draft2.txt
 ├── document-final.txt
 ├── document-final-fixed.txt
 └── document-FINAL-FINAL.txt
