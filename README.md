@@ -207,7 +207,7 @@ To tell Git what changes you want to add to the commit, you need to add those ch
 Another git status will indicate that you have changes that need to be committed.
 After adding the changes to your commit, you need to finalize it with `git commit -m "<your message>"`.
 
-### The first project - Workspaces
+#### The first project - Workspaces
 
 After hearing terms like _working directory_, _staging area_ and _repository_ you might ask, what those things are.
 
