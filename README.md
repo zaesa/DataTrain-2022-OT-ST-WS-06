@@ -148,3 +148,15 @@ E.g. `git init --help` shows you a _DESCRIPTION_ of what this command does. You 
 
 Git is NOT GitHub or GitLab or any other service or software. Git can be used to work with those services, but it must not be confused with them.
 
+### 2.4 Collaboration
+
+Git, as it stands, can be used to collaborate with others. If you are working on a repository that you have obtained in some way, you can use commands like `git format-patch mybranch` to create a patch file that updates someone else's repository with your changes via the command `git am mychanges.patch`. But this is very cumbersome and some people thought this should be simplified. They developed software like GitHub, Gitlab, Bitbucket, Gitea. Some offer their software as open source and/or as a service.
+
+These services and solutions offer features that go far beyond those of Git. From additional ticket systems, project management, wikis, reviews, communities to automation.
+
+The most used platform, according to the StackOverflow survey, is GitHub, which we are talking about today.
+More about using GitHub for collaboration is explained in later chapters.
+
+![](images\so-s-vcs-platforms-2022.png)
+[StackOverflow Survey 2022 - VCS Platforms](https://survey.stackoverflow.co/2022/#section-version-control-version-control-platforms)
+
