@@ -50,3 +50,23 @@ Now imagine what this might look like for projects with multiple files, such as 
 
 In the early era of software development in the 1960s and 1970s, the need arose for a system to manage these changes in a logical way. The first [Source Code Control System](https://en.wikipedia.org/wiki/Source_Code_Control_System) was developed in 1972. Later, other version control systems were developed. The most commonly used system is the one we are talking about today.
 
+### 2.2 A version control system?
+
+With books, there are different editions. When the content is updated, the edition is increased. This has been done for hundreds of years. Most books are written by a single person, and when they are edited in collaboration, people tend to divide the chapters. Working on a book in the traditional way and in collaboration with other people is very labor intensive.
+The work of software engineers in the 1960s was spread across mainframes and thousands of lines of code, which are not as easy to read as prose. Mistaking a lowercase L for a capital i isn't wild in novels, but in the software world it quickly leads to bugs.
+
+That's why VCS were developed. But what should they be able to do anyway?
+
+- Track changes across multiple files
+- Compare different versions
+- Restore a previous state
+- Collaborate with other people
+
+The first VCS was just the beginning, others were developed after to meet changing needs.
+
+- [RCS](https://www.gnu.org/software/rcs/) (1982)
+- [CVS](http://cvs.nongnu.org/) (1990)
+- [SVN](https://subversion.apache.org/) (2000)
+- [Mercurial](https://www.mercurial-scm.org/) (2005)
+- [Git](https://git-scm.com/) (2005)
+
