@@ -70,3 +70,23 @@ The first VCS was just the beginning, others were developed after to meet changi
 - [Mercurial](https://www.mercurial-scm.org/) (2005)
 - [Git](https://git-scm.com/) (2005)
 
+### 2.3 What is git?
+
+> Git is a free and open source distributed version 
+> control system designed to handle everything from 
+> small to very large projects with speed and efficiency.
+> 
+> [git-scm.com](https://git-scm.com/)
+
+After some controversy, Linus Torvalds was looking for a version control system to use for the development of the Linux kernel.
+Unable to find a solution that met his requirements, he began developing git in 2005.
+Due to the high status of the Linux kernel in the developer community, git became popular quite quickly.
+
+Every year, [StackOverflow](https://stackoverflow.com/) collects answers from its users. One question they ask is about VCS. 
+
+For years, the use of Git has been on the rise. Ten years after its initial release, Git was already used by 69.3% of StackOverflow survey respondents.
+In the most recent 2022 survey, 93.87% of 71,379 people responded that they use Git as their preferred version control system.
+
+![](images\so-s-vcs-use-2022.png)
+[StackOverflow Survey 2022 - VCS](https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems)
+
