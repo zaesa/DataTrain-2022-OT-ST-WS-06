@@ -94,7 +94,7 @@ In the most recent 2022 survey, 93.87% of 71,379 people responded that they use 
 
 Git is a command line tool with a large number of commands for controlling changes to your files. If you call the help information via `git --help` after installation, you will get an overview of the available commands.
 
-```bash
+```
 $ git --help       
 usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
            [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
@@ -164,8 +164,6 @@ More about using GitHub for collaboration is explained in later chapters.
 
 You can start setting up your first project. You will use this project for most of today's exercises.
 
-Open a terminal of your choice and navigate to a directory where you want to create your project.
-
 ### 3.1 Project initialization
 
 Before you can use most Git commands, you must tell Git that the directory you are in should be a Git repository. To do this, you must use the `git init -b main` command. The `-b main` option is short for `--initial-branch=main` and sets the default branch named _main_. Do not worry now about what are branches.
@@ -204,18 +202,18 @@ Fill it with some content like a title and text. When you call `git status` agai
 
 To tell Git what changes you want to add to the commit, you need to add those changes with `git add README.md`. This will add all changes to the `README.md` file to the commit. There are other options to add individual lines (`git add --interactive`, `git add --patch`, or GUI tools), but we want to keep it simple for now. You can run this command several times to add more files to the commit.
 
-Another git status will indicate that you have changes that need to be committed.
+Another `git status` will indicate that you have changes that need to be committed.
 After adding the changes to your commit, you need to finalize it with `git commit -m "<your message>"`.
 
 #### Visualizing commits
 
-Commits build on each other. At this point our git graph would look like this.
+Commits build on each other. Each bubble in the graph represents a commit.
+As a commit contains only the modifications it depends on the ones before. 
 
 ```mermaid
 %%{init: { 'theme': 'neutral' } }%%
 gitGraph
-   commit id: "initial commit"
-   commit id: "update README.md"
+   commit id: "my first commit"
 ```
 
 ### 3.4 Workspaces
