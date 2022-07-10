@@ -194,7 +194,7 @@ But then what are commits?
 
 ### 3.3 Commits
 
-A _commit_ is a change you have made to the repository. It can consist of a single line that you changed, or a large number of changes across multiple lines and files.
+A _commit_ is a change you have made to the repository. It can consist of a single line that you changed, or a large number of changes across multiple lines and files. Each commit has a unique 40 character string to identify it.
 
 To create a commit, you must first make changes. In your empty repository, you can create a file called `README.md`. This is a special file that we will look at when we start working with GitHub.
 
@@ -359,4 +359,28 @@ gitGraph
    commit
    merge formatting
    commit
+```
+
+## 5. Git History
+
+Everything you do to git is stored in a history. With this history you can the state of your repository. Simillar to switching branches, when using commit hashes or tags you can set the state of your repository to this commit.
+
+### Logs
+
+To access the history of git the command `git log` and the many options it provides will show you. The simplest command `git log` provides an output that states the hash, author, date and message of a commit.
+
+```
+commit 990a517a04ab89f2ffd99d93b22ac99172772609
+Author: Your Name <your-mail@example.com>
+Date:   Sun Jul 11 12:36:11 2022 +0200
+
+    my first commit
+```
+
+To get a graph that is similar to the ones here the command `git log --all --graph --oneline --decorate` will create one. 
+
+```
+* ae00104 add AUTHORS file
+* 6a7ba4a add new line to README.md
+* 990a517 my first commit
 ```
