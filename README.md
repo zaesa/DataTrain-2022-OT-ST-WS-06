@@ -87,7 +87,7 @@ Every year, [StackOverflow](https://stackoverflow.com/) collects answers from it
 For years, the use of Git has been on the rise. Ten years after its initial release, Git was already used by 69.3% of StackOverflow survey respondents.
 In the most recent 2022 survey, 93.87% of 71,379 people responded that they use Git as their preferred version control system.
 
-![](images\so-s-vcs-use-2022.png)
+![Survey about vcs tools](images\so-s-vcs-use-2022.png)
 [StackOverflow Survey 2022 - VCS](https://survey.stackoverflow.co/2022/#section-version-control-version-control-systems)
 
 #### But what exactly is git?
@@ -157,7 +157,7 @@ These services and solutions offer features that go far beyond those of Git. Fro
 The most used platform, according to the StackOverflow survey, is GitHub, which we are talking about today.
 More about using GitHub for collaboration is explained in later chapters.
 
-![](images\so-s-vcs-platforms-2022.png)
+![Survey about vcs platforms](images\so-s-vcs-platforms-2022.png)
 [StackOverflow Survey 2022 - VCS Platforms](https://survey.stackoverflow.co/2022/#section-version-control-version-control-platforms)
 
 ## 3. The first repository
