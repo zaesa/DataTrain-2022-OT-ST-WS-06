@@ -241,3 +241,74 @@ After you add and commit the changes, they end up in the repository on your devi
 
 The stash command, which has not been discussed so far, is a special command. It offers you the possibility to save changes in a _dirty_ working directory. Some commands do not need changed or unconfirmed changes to be executed. With stash you can save these changes temporarily.
 
+## 4. Branches and Merges
+
+One of the main features of Gits is the ability to split off from work and edit files in another workspace based on the current one. 
+These workspaces are called branches. You always start with a branch in your Git repository. Usually, this branch is called `main`. Unlike branches in most trees, these can and should be merged with another branch, usually the main branch.
+
+### 4.1 Branches
+
+You start with the `main` branch and create your commits in that branch. If you decide you need another branch, the `git switch --create <new_branch>` command (introduced in Git version 2.23) creates a new branch with the current state of the branch you were in before and switches to it. Now you can make changes to it and commit them to this new branch. Your original branch will not be affected by these commit. 
+You can switch between these branches at any time, e.g. `git switch main` to return to your main branch.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'gitGraph':  {'mainBranchOrder': '1'} } }%%
+gitGraph
+   commit id: "my first commit"
+   commit
+   branch Branch_1 order: 0
+   commit
+   commit
+   checkout main
+   commit
+   commit
+   branch Branch_2 order: 2
+   commit
+   commit
+   checkout main
+   commit
+```
+
+Typically, other branches are used to work on a new feature for a piece of software or a new chapter or section of a book. Another use case could be that you are working on an essay and want to try a different way of formatting. Then it makes sense to create a new branch just for those experiments. You can keep your original work, but at the same time work on something you're not sure yet if it will be kept. Once you know what you want to do with the formatting branch, you can either delete it with `git branch --delete <branch_name>` after switching to some other branch, or you can merge the changes commited to this branch to the main branch.
+ 
+### 4.2 Merging
+
+When you have concluded that you want to merge your changes from the other branch with the main branch, you need the `git merge` command. 
+
+Suppose you made some commits to the main branch before you created the _formatting_ branch. You changed the formatting and applied some changes to the main branch as well. The git graph would then look something like this:
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+gitGraph
+   commit id: "my first commit"
+   commit
+   branch formatting
+   commit
+   commit
+   checkout main
+   commit
+   commit
+   commit
+```
+
+Then you decide to merge the changes of the _formatting_ branch into the main branch. You first switch to main with `git switch main` and then merge the changes of the _formatting` branch with `git merge formatting`.
+The resulting graph looks like this.
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+gitGraph
+   commit id: "my first commit"
+   commit
+   branch formatting
+   commit
+   checkout formatting
+   commit
+   checkout main
+   commit
+   commit
+   commit
+   merge formatting
+```
+
+Git creates a new commit after the latest one, this is called a merge commit. If the source branch is not required anymore you may delete it.
+
