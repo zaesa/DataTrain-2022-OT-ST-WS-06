@@ -318,7 +318,7 @@ Lines 1-5 of the file are used for the title and some structural elements. After
 
 If you merge a branch that results in a merge conflict, Git will alert you with a message like this:
 
-```bash
+```
 Auto-merging <filename>
 CONFLICT (content): Merge conflict in <filename>
 Automatic merge failed; fix conflicts and then commit the result.
