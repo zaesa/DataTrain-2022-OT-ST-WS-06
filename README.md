@@ -365,7 +365,7 @@ gitGraph
 
 Everything you do to git is stored in a history. With this history you can the state of your repository. Simillar to switching branches, when using commit hashes or tags you can set the state of your repository to this commit.
 
-### Logs
+### 5.1 Logs
 
 To access the history of git the command `git log` and the many options it provides will show you. The simplest command `git log` provides an output that states the hash, author, date and message of a commit.
 
@@ -377,10 +377,35 @@ Date:   Sun Jul 11 12:36:11 2022 +0200
     my first commit
 ```
 
-To get a graph that is similar to the ones here the command `git log --all --graph --oneline --decorate` will create one. 
+To get a graph that is similar to the ones here the command `git log --all --graph --oneline` will create one. 
 
 ```
 * ae00104 add AUTHORS file
 * 6a7ba4a add new line to README.md
 * 990a517 my first commit
 ```
+
+The `git log` command has a lot of options to choose from. In the examples above, I used `--graph` to create a graph view. Since this graph would span all the details of my history, I also used `--oneline` to reduce the output of `git log` to just one line per commit.
+
+### 5.2 Tags
+
+To expand Git's list of pointers and have some more readable ones, Git supports tags. You can tag any commit in any branch of your repository. The tag can be simple and include just the tag name, but it can also include information about the author, a date, or your digital signature. Tags can also contain a message, as commits do. In software development, this is often used to mark a point in a release, such as _v1.12_.
+When distributing software, the developer can then create a hotfix for that version only, rather than updating the software stack on the client from _v1.12_ to the current version, which may be _v2.7_ and bring a lot of breaking changes.
+
+If you want to search a repository and list all tags, the `git tag --list` command displays all them. You can also filter for tags by appending a string and a wildcard, for example `git tag --list v2*`.
+
+To create a tag, you need to know where you want to do it. The default `git tag` creates a one for the commit you just checked out. You can create a lightweight tag, simply enter the command and a name for the it, such as `git tag first-tag`. You may want to attach a message to the tag, add `-m "your message"` to the command.
+
+If you want to create a commit that you created in the past, you can pass the commit hash to the tag command, and it will add that tag to the specified commit, for example `git tag <tag_name> <commit_hash>`. 
+
+To show the content of a tag just enter `git show <tag_name>` and it will show the tag and commit details. 
+
+### 5.3 Project travel
+ 
+But what are all those tags and commit hashes worth?
+
+By now you already switched between branches. The commit hashes allow you to check out any commit you or someone else commited. This will bring your working directory to the state the repository had when the commit was created. To do that you need the `git checkout <commit_hash>` command.
+
+You may create a new branch now or check out another commit, tag or branch.
+
+To simplify going to specific commits of value we can use git tags. The command is the same as before, but now you enter the tag name (`git checkout <tag_name>`).
