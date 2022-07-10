@@ -301,14 +301,62 @@ gitGraph
    commit
    branch formatting
    commit
+   commit
+   checkout main
+   merge formatting
+   commit
+```
+
+If no changes to the main branch conflict with the branch being merged, Git simply appends the commits to the existing commits of the main branch. Otherwise, there are merge conflicts that must be resolved.
+
+### 4.3 Merge conflicts
+
+If you are working on multiple branches, sometimes there are conflicts when merging. This is because Git cannot decide which lines to remove or move to a different location. This usually happens when you edit the same lines in a file in multiple branches. 
+
+For example: you are working on a book. Since you are working on the different chapters at the same time, you have created a repository with a main branch containing a file with the title and started creating branches for each chapter.
+Lines 1-5 of the file are used for the title and some structural elements. After you finish the first chapter, merge it without conflicts. Git merges the changes in lines 6-75. Now you also finish chapter 4, but it too starts at line 6 and lasts until line 120. Git doesn't know how to handle the merge of the fourth chapter.
+
+If you merge a branch that results in a merge conflict, Git will alert you with a message like this:
+
+```bash
+Auto-merging <filename>
+CONFLICT (content): Merge conflict in <filename>
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Within the conflicting file(s), Git has added some additional lines with a somewhat confusing syntax.
+Even if it looks strange at first, it helps to fix the conflicts.
+
+```
+<<<<<< HEAD
+This line was already within the main branch
+======
+This was added within the conflicting branch
+>>>>>> conflicting_branch_name
+```
+
+The first line `<<<<<< HEAD` introduces a new term, HEAD. Git uses several pointers to make it easier for you to change the current state of the repository. The HEAD pointer points to the last commit hash of a branch.
+The part between `<<<<<< HEAD` and `======` contains all the text you currently have in your branch.
+Everything between `======` and `>>>>>> conflicting_branch_name` contains the changes that conflict with the text you already have, and that come from the branch named `conflicting_branch_name`.
+Git doesn`t know whether this text needs to be merged, concatenated, or discarded.
+
+- When you want to discard the changes in HEAD, you would delete the part from `<<<<<< HEAD` till `======`. Also you need to remove `>>>>>> conflicting_branch_name`
+- When you want to discard the changes from the conflicting branch, you would delete the part from `=====` and `>>>>>> conflicting_branch_name` and also delete `<<<<< HEAD`
+- When you want to merge or concatenate them, you need to order the text manually and delete `<<<<< HEAD`, `======` and `>>>>>> conflicting_branch_name`
+
+When you have fixed the problems in the conflicting files. The next step is to add all the files to the staging area and commit them at once. Git creates an additional merge commit with all the changes required to resolve the conflict. 
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+gitGraph
+   commit id: "my first commit"
+   commit
+   branch formatting
+   commit
    checkout formatting
    commit
    checkout main
    commit
-   commit
-   commit
    merge formatting
+   commit
 ```
-
-Git creates a new commit after the latest one, this is called a merge commit. If the source branch is not required anymore you may delete it.
-
