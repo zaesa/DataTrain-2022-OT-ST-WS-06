@@ -409,3 +409,163 @@ By now you already switched between branches. The commit hashes allow you to che
 You may create a new branch now or check out another commit, tag or branch.
 
 To simplify going to specific commits of value we can use git tags. The command is the same as before, but now you enter the tag name (`git checkout <tag_name>`).
+
+## 6. GitHub
+
+There are many services that offer additional functionality around Git. One of the biggest is GitHub, which is now part of Microsoft. The features that this service offers go beyond the capabilities of Git. You can create a wiki, issues, discussions, project management and automation on GitHub. The service is also focused on collaboration on repositories.
+ 
+### 6.1 Publish a project on GitHub
+
+Let us start publishing the project you were working on. To do that you first must [create a new project on GitHub](https://github.com/new).
+
+![github project creation form](images/github-new-project.png)
+
+The form asks for all kinds of information you currently do not need. After creating the repository GitHub will redirect you to the quick setup examples on how to fill your repository with files.
+
+![github project quick setup guide](images/github-quick-setup.png)
+
+After creation, you need to customize your local Git repository. It does not know anything about the project on GitHub yet. The command to add remotes is `git remote add <remote_name> <remote_url>`. A common convention for the remote name is `origin`.
+If you did not name your branch `main`, you can rename it now with `git branch -M main`.
+The last thing you need to do is upload the contents of your repository to the remote project. The command `git push` will do that. But git doesn`t know at the moment to which branch on the remote side you want to upload your commits. So you need to add the `--set-upstream <remote_name> <branch_name>` option. The full command is `git push --set-upstream origin main`.
+
+Now the contents of your repository can also be found on GitHub.
+
+### 6.2 Working with remotes
+ 
+To work with remotes, git provides a number of commands.
+
+- `git clone`
+- `git fetch`
+- `git pull`
+- `git push`
+
+The clone command is used to download a repository from a remote repository such as GitHub to your local storage.
+To update your local repository with the contents of a remote repository, but without changing your workspace, you can use the fetch command. To also update your workspace, use the pull command.
+To upload your commits in the local repository to a remote repository to which you have push access, use the push command.
+
+```mermaid
+sequenceDiagram
+   participant Workspace
+   participant Staging Area
+   participant Local Repository
+   participant Remote Repository
+   Workspace->>Staging Area: git add
+   Staging Area->>Local Repository: git commit
+   Local Repository->>Remote Repository: git push
+   Remote Repository->>Local Repository: git fetch
+   Remote Repository->>Workspace: git pull
+```
+
+### 6.3 Special files
+
+During the creation of your project you may have read terms like `README.md` and `.gitignore`. These are special files for Git and also for GitHub. There are other special files you can read about in the git and GitHub documentation. But two of then are used pretty often, the `.gitignore` and the `README.md`.
+
+#### .gitignore
+
+This file tells git what to ignore. Sometimes you have files in your local working directory that you never want to commit. These can be files that your operating system, editor, or other programs generate. For example, if you wrote a paper in Latex, you don't need to include the PDF and other temporarily generated files because anyone can generate them.
+You should also not commit files with passwords, especially to a public repository, as anyone can read them.
+
+#### README.md
+
+If you have created a file named `README.md`, you will now see why it is special to GitHub (and other services).
+There are also other formats for this file. This format includes [Markdown](https://www.markdownguide.org/basic-syntax) to structure text as headings, etc.
+On GitHub, this file is the first to be presented to a viewer. You can use this file to describe how to use your project, specify the contributors, or whatever you have in mind that you want others to read first.
+ 
+### 6.4 Collaboration
+
+The most used form of collaboration on GitHub is through _pull requests_.
+ 
+#### Pull Requests
+
+A pull request has some special features on GitHub. When you create a pull request, you can discuss your changes with other participants. GitHub also checks if there are any merge conflicts that need to be resolved first.
+All comments and commits are visible in the pull request and can be easily tracked.
+ 
+#### You are a collaborator to a GitHub project
+
+You can work with this project the same way as you would on your personal repository. 
+
+#### You want to update a public GitHub project
+ 
+1. On GitHub fork the project [DataTrain-2022-OT-ST-WS-06](https://github.com/nharms-awi/DataTrain-2022-OT-ST-WS-06)
+2. In your terminal run these commands
+
+```bash
+# Clone the fork of project to your device
+git clone git@github.com:<your_github_username>/DataTrain-2022-OT-ST-WS-06.git
+# Add the upstream repository to your project
+git remote add upstream git@github.com:nharms-awi/DataTrain-2022-OT-ST-WS-06.git
+```
+
+3. Now you want to start working on your changes.
+
+```bash
+# First we want to create a new branch, as we never want to modify the main branch
+git switch -c myfeature
+```
+
+4. Track your branches with the remote
+
+```bash
+# Push all local branches to your origin and set up tracking
+git push --all --set-upstream
+```
+
+5. Modify your project, create commits and push them to your fork.
+
+6. Create a pull request
+
+### 6.5 Other Features
+
+Some other features that GitHub offers are wikis, an issue tracker, project management and automation. With wikis you can go into more detail, for example, if you have a software repository and you want to have guidance for users.
+The issue tracker and projects are good for managing your project and seeing what still needs to be done. You can write down rough ideas of what you want to write or what feature you want to implement. 
+With GitHubs _actions_ you can automate things around your project. For example, generate a PDF of the latex files you push, test and deploy software, update a website. The possibilities here are endless.
+ 
+## 7. Strategies for collaboration
+ 
+### 7.1 Single Branch
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+gitGraph
+   commit
+   commit
+   commit
+   commit
+   commit
+   commit
+```
+
+### 7.2 Main/Development
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+gitGraph
+   commit
+   branch dev
+   commit
+   commit
+   checkout main
+   merge dev tag: "v1"
+   checkout dev
+   commit
+   commit
+   checkout main
+   merge dev tag: "v2"
+   checkout dev
+   commit
+```
+
+### 7.3 Git Flow
+
+![nvie git flow](images/gitflow.svg)
+[Atlassian Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
+## 8. Further Reading
+
+- Oh shit, git!?! https://ohshitgit.com/
+- Git documentation https://git-scm.com/doc
+- GitHub documentation https://docs.github.com/en
+- Atlassian Documentation https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
+- Oh my git https://ohmygit.org/
+- .gitignore generator https://wwwgitignore.io
+- Nico Harms <nico.harms@awi.de>
