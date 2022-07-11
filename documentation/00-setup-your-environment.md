@@ -207,7 +207,7 @@ commit 368c68ae34a5701a893417a2c40a5f94b945ec86 (HEAD -> mail@example.com)
 gpg: Signature made Mo, 27. Jun 2022 17:51:21
 gpg:                using RSA key AD0C101BD726327129BC3F1F1A715B0B451F47EC
 gpg: Good signature from "Nico Harms <mail@example.com>" [ultimate]
-Author: Nico Harms <nico@harms.de>
+Author: Nico Harms <mail@example.com>
 Date:   Mon Jun 27 15:15:34 2022 +0200
 
     I, Nico Harms, completed the setup
