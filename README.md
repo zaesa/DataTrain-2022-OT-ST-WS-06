@@ -6,7 +6,7 @@ Before attending the course, follow the steps in the [Setup guide](documentation
 
 ## 1. Onboarding 
 
-Before we start. Lets check your [check your configuration](excercises/01.md) first.
+Before we start. Lets check your [check your configuration](exercises/01.md) first.
 
 ## 2. Why using a version control system
 
