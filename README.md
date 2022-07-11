@@ -1,4 +1,4 @@
-# DataTrain | OT-ST-WS-06 | Git / GitHub
+# DataTrain 2022 | OT-ST-WS-06 | Git / GitHub
 
 ## 0. Preparation
 
